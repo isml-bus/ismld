@@ -48,7 +48,7 @@ var subscriber = connection.Subscribe(
     }, 
     handler: async (message) => {
       var payload = await message.Payload.CastTo<OnPingSentMessage>();
-      var progress = message.Checkpoint.CastTo<HandlerProgressData>() ?? new HandlerProgressData
+      var progress = message.State.CastTo<HandlerProgressData>() ?? new HandlerProgressData
       {
           Counter = 0;
       };
