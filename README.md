@@ -7,7 +7,7 @@ $> ismld daemon up --bind=192.168.0.1:31685
 ```
 
 To add client users:  
-```
+```bash   
 $> ismld clients add foo 
 ismld: New client with login='foo' created. Keep generated client secret:
 
