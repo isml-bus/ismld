@@ -2,7 +2,9 @@
 A simple, secure, brokerless, polygot event bus that can be consumed on the edge written in C# inspired by NSQ.io  
 
 To run:  
-` $> ismld daemon up --bind=192.168.0.1:31685`  
+```bash  
+$> ismld daemon up --bind=192.168.0.1:31685
+```
 
 To add client users:  
 ```
@@ -13,7 +15,7 @@ ismld: New client with login='foo' created. Keep generated client secret:
 ```  
 
 Client usage example (C#):
-```
+```c#
 var connection = new IsmlConnection(
     options: new IsmlConnectionOptions {
         Host = "127.0.0.1:31685",
