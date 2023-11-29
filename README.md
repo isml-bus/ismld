@@ -22,6 +22,7 @@ var connection = new IsmlConnection(
         ClientCredentials = new {
             Login = "foo",
             Secret = "some-super-secret-key",
+            Token = "optional-jwt-if-using-oauth",
             ClientId = "an-optional-but-unique-client-id"
         },
         NamePrefix = "[DEV]", // prepend all topic, channel names with it. 
