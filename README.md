@@ -56,7 +56,7 @@ var subscriber = connection.Subscribe(
       while (progress.Counter < 3)
       {
           // terminate work if cancellation is requested
-          if (message.CancellationToken.IsCancellationRequested)
+          if (message.IsCancellationRequested)
           {
               // save progress state for use when the message
               // is redispatched for re-execution later
