@@ -40,6 +40,7 @@ Console.WriteLine($"msgId={metadata.MsgId}");
 // subscribe to a channel
 var subscriber = connection.Subscribe(
     options: {
+        ClientId: "another-optional-but-unique-client-id",
     	Topic: "OnPingSent", 
         Channel: "OnPingReceivedHandler",
         HandlerTimeout = TimeSpan.FromMinutes(1),
