@@ -49,7 +49,7 @@ var subscriber = connection.Subscribe(
     }, 
     handler: async (message) => {
       var payload = await message.Payload.CastTo<OnPingSentMessage>();
-      var progress = message.State.CastTo<HandlerProgressData>() ?? new HandlerProgressData
+      var progress = await message.State.CastTo<HandlerProgressData>() ?? new HandlerProgressData
       {
           Counter = 0;
       };
@@ -62,7 +62,7 @@ var subscriber = connection.Subscribe(
               // save progress state for use when the message
               // is redispatched for re-execution later
               // to resume where it left off
-              message.Shelve(state: progress);
+              await message.Shelve(state: progress);
               return;
           }
 
@@ -89,7 +89,7 @@ Console.WriteLine($"subsId={subscriber.Id}");
 Console.WriteLine($"Full Channel Name: {subscriber.FullChannelName}"); // [DEV]OnPingReceivedHandler@OnPingSent
 
 // start listening for incoming messages
-subscriber.Start();
+await subscriber.Start();
 ```
 
 # Objectives:
